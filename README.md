@@ -11,5 +11,5 @@ This project was developed using ASP.NET MVC with C#
 2. Create a new Database Called SalesDB.
 3. Open the Offline Store/Stored_Procedures folder and run the script called Setup.sql
 4. Finally, update the ConnectionString settings your web.config in the Offline Store folder to reflect your own MS SQL Server settings.
-5. Return the root directory and open the Offline Store.sln file with Visual Studio to run the project.
+5. Return to the root directory and open the Offline Store.sln file with Visual Studio to run the project.
 

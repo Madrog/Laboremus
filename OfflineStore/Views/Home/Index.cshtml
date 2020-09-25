@@ -1,0 +1,48 @@
+﻿@model OfflineStore.Models.SalesRecord
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h1>Mini Dashboard</h1>
+
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <fieldset>
+        <legend>Date Range</legend>
+        From: <input type="datetime" name="date1" required="required" />
+        To: <input type="datetime" name="date2" required="required" />
+        <input type="submit" name="search" value="search" />
+    </fieldset>
+}
+
+<hr />
+
+<h3><<<< @ViewBag.DateRange >>>></h3>
+<h4>Total Profit</h4>
+<h3>@ViewBag.TotalProfit</h3>
+
+<hr />
+    
+<h4>Top 5 Profitable Item Types</h4>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        @foreach (KeyValuePair<string, decimal> keyValue in ViewBag.Top5ItemTypes)
+        {
+            <tr>
+                <td>@keyValue.Key</td>
+                <td>@keyValue.Value.ToString("#,###.00")</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<hr />
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
